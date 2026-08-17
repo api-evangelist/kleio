@@ -1,0 +1,41 @@
+generated: '2026-08-17'
+method: searched
+source: 'npm registry search, PyPI, GitHub org https://github.com/kleioai, https://www.kleio.ai/'
+package_count: 0
+official_package_count: 0
+note: 'Kleio ships no client libraries. The registries were searched directly rather than by web search,
+  because the name collides badly. Kleio''s own GitHub organization — github.com/kleioai, verified as
+  this company by the kleio.ai website link and France location on the profile — has zero public
+  repositories. Consistent with the delivery model: Kleio is implemented for enterprise customers as a
+  hosted platform with CRM/catalog connectors, not adopted by self-service developers, so there is
+  nothing for an SDK to wrap publicly. No SDKs pointer is emitted.'
+packages: []
+name_collisions_rejected:
+- name: '@kleio/core, @kleio/agent, @kleio/ai, @kleio/coder, @kleio/manager'
+  registry: npm
+  version: 4.10.1-kleio.0
+  published: '2026-07-17'
+  belongs_to: fmckie/gg-framework
+  reason: 'A CLI coding-agent framework, unrelated to kleio.ai. Homepage
+    https://github.com/fmckie/gg-framework#readme.'
+- name: kleio
+  registry: npm
+  version: 1.0.0
+  published: '2016-11-17'
+  belongs_to: JoelRoxell/kleio
+  reason: 'A development logging helper published in 2016, eight years before Kleio was founded.'
+- name: kleio
+  registry: pypi
+  version: null
+  published: null
+  belongs_to: unrelated third party
+  reason: 'pypi.org/pypi/kleio/json returns 200 for a package with no connection to kleio.ai; no Kleio
+    author, homepage or repository link.'
+registries_searched:
+- registry: npm
+  result: no first-party package
+- registry: pypi
+  result: no first-party package
+- registry: github
+  url: https://github.com/kleioai
+  result: 'organization exists and is Kleio''s, zero public repositories'

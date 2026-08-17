@@ -1,19 +1,66 @@
 aid: kleio
 name: Kleio
-description: 'Kleio is a company surfaced as a portfolio company of serena and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai-data. This profile is a lead awaiting the enrichment pipeline.'
+description: 'Kleio is a Paris-headquartered agentic commerce platform for complex, high-value enterprise
+  sales, founded in 2024 by Adrien Mathieu, Philippe Wellens and Louis Poirier and backed by a EUR 3M
+  seed round. The platform pairs a domain-specific Knowledge Engine — a continuously updated representation
+  of a company''s catalog, pricing, business rules and ontologies — with a stack of orchestrated AI agents
+  tuned for each stage of the sales funnel: discovery agents for intent qualification, product-guidance
+  agents that reason over the catalog, quoting agents wired to configurators and pricing, and a Live Sales
+  Copilot that augments human advisors in real time. Kleio deploys across web widgets, advisor desktops
+  and third-party AI surfaces such as ChatGPT and Gemini via MCP/UCP integrations, with CRM and catalog
+  write-back to Salesforce, HubSpot and custom systems. Named customers include Selectour, Havas Voyages,
+  Showroomprive, Altarea Cogedim, Orpi and Emil Frey, across travel, real estate, automotive, wholesale,
+  insurance, manufacturing and energy. Kleio publishes no public developer portal, API reference or
+  OpenAPI: the platform API at api.kleio.ai is an OAuth-protected Google Cloud API Gateway reachable only
+  to customers, and access begins with a sales conversation.'
 url: https://raw.githubusercontent.com/api-evangelist/kleio/refs/heads/main/apis.yml
 x-type: company
 x-source: serena-portfolio
-x-tier: stub
-x-tier-reason: portfolio-lead
+image: https://cdn.prod.website-files.com/67b32cd10cd0c67b686078c2/67c06a31d5ccb4402746c01b_logo-circle-32x32.png
 specificationVersion: '0.20'
 created: '2026-08-17'
 modified: '2026-08-17'
 tags:
 - Company
 - Ai Data
-apis: []
+- Agentic Commerce
+- AI Agents
+- Enterprise Sales
+- Conversational AI
+- Knowledge Engine
+- Model Context Protocol
+- Agent To Agent
+- Retail
+- Travel
+- Real Estate
+- Automotive
+- France
+apis:
+- aid: kleio-platform
+  name: Kleio Platform API
+  description: 'The Kleio platform API, served from api.kleio.ai behind a Google Cloud API Gateway and
+    protected by OAuth 2.0 authorization-code + PKCE against an Auth0 tenant at auth.kleio.ai. Kleio
+    publishes no public API reference or OpenAPI definition; the surface was established by probe — the
+    gateway advertises RFC 8414 authorization-server metadata at
+    https://api.kleio.ai/.well-known/oauth-authorization-server (HTTP 200) which names a dynamic client
+    registration endpoint at https://api.kleio.ai/api/oauth/register (HTTP 405 to GET, confirming the
+    route is defined). Every other probed path returns the gateway''s "The current request is not defined
+    by this API" 404. Operations, schemas and scopes are not publicly documented.'
+  humanURL: https://www.kleio.ai/products
+  baseURL: https://api.kleio.ai
+  tags:
+  - Agentic Commerce
+  - AI Agents
+  - OAuth
+  properties:
+  - type: Authentication
+    url: authentication/kleio-authentication.yml
+  - type: OAuthScopes
+    url: scopes/kleio-scopes.yml
+  - type: Conventions
+    url: conventions/kleio-conventions.yml
+  - type: RateLimits
+    url: rate-limits/kleio-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -22,3 +69,121 @@ maintainers:
 common:
 - type: Website
   url: https://www.kleio.ai/
+- type: Blog
+  url: https://www.kleio.ai/news
+- type: Support
+  url: https://www.kleio.ai/contact
+- type: PrivacyPolicy
+  url: https://www.kleio.ai/privacy-policy
+- type: TermsOfService
+  url: https://www.kleio.ai/acceptable-use-policy
+- type: Security
+  url: https://www.kleio.ai/security-policy
+- type: GitHubOrganization
+  url: https://github.com/kleioai
+- type: LinkedIn
+  url: https://www.linkedin.com/company/kleio-ai
+- type: Twitter
+  url: https://x.com/kleio_ai
+- type: LLMsTxt
+  url: llms/kleio-llms.txt
+- type: WellKnown
+  url: well-known/kleio-well-known.yml
+- type: Authentication
+  url: authentication/kleio-authentication.yml
+- type: OAuthScopes
+  url: scopes/kleio-scopes.yml
+- type: Conformance
+  url: conformance/kleio-conformance.yml
+- type: DomainSecurity
+  url: security/kleio-domain-security.yml
+- type: Lifecycle
+  url: lifecycle/kleio-lifecycle.yml
+- type: Conventions
+  url: conventions/kleio-conventions.yml
+- type: Plans
+  url: plans/kleio-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/kleio-rate-limits.yml
+- type: Packages
+  url: packages/kleio-packages.yml
+x-enrichment:
+  date: '2026-08-17'
+  status: minimal
+  artifacts_added: 13
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: 'Kleio runs a real OAuth-protected platform API at api.kleio.ai — its Google Cloud API Gateway
+    serves RFC 8414 authorization-server metadata naming an Auth0 issuer and a defined dynamic client
+    registration route — but publishes no developer portal, API reference, OpenAPI or auth guide
+    anywhere, and kleio.ai/pricing and kleio.ai/docs both 404, so the only route to the API is the
+    "Request a Demo" form at kleio.ai/contact.'
+  evidence:
+  - url: https://api.kleio.ai/.well-known/oauth-authorization-server
+    status: 200
+  - url: https://api.kleio.ai/api/oauth/register
+    status: 405
+  - url: https://api.kleio.ai/openapi.json
+    status: 404
+  - url: https://www.kleio.ai/docs
+    status: 404
+  - url: https://www.kleio.ai/pricing
+    status: 404
+  - url: https://www.kleio.ai/contact
+    status: 200
+  checked: '2026-08-17'
+x-pointer-omissions:
+  note: 'Pointers deliberately NOT emitted, recorded so a later pass does not re-litigate them. Each was
+    considered and rejected because the check asserts something Kleio does not publish.'
+  omitted:
+  - type: MCPServer
+    reason: 'Kleio markets MCP/UCP integration in its own llms.txt and product page but publishes no
+      endpoint; tools/list POSTs to every plausible path return the gateway 404. See mcp/kleio-mcp.yml
+      (deployment.mode: none). The search-engine result app.getkleio.com/api/mcp belongs to a
+      different company that shares the name.'
+  - type: AgentCard
+    reason: '/.well-known/agent-card.json and /.well-known/agent.json return 404 on every Kleio host.
+      Search-only artifact; nothing written.'
+  - type: StatusPage
+    reason: 'status.kleio.ai has a real DNS record but returns a Cloudflare bot challenge (403) and
+      could not be read. kleio.statuspage.io is a soft-404 redirecting to Atlassian marketing.'
+  - type: Deprecation
+    reason: No deprecation or versioning policy published.
+  - type: SDKs
+    reason: Zero first-party client libraries in any registry; the GitHub org has no public repos.
+  - type: Compliance
+    reason: 'The certifications in kleio.ai/security-policy (SOC 2, ISO 27001/27017/27018) are held by
+      sub-processors — GCP, Redis Cloud, CockroachDB — not by Kleio.'
+  - type: Pricing
+    reason: No pricing page exists; kleio.ai/pricing 404s and the sitemap has no pricing URL.
+  - type: DeveloperPortal
+    reason: 'Kleio has no developer portal. kleio.ai/products and /agentic-discovery-engine are
+      marketing pages; pointing a portal check at them would credit 4 pts for a surface that does not
+      exist.'
+  - type: Documentation
+    reason: 'No API documentation of any kind. kleio.ai/docs and /developers both 404 and no docs
+      subdomain resolves.'
+  - type: APIReference
+    reason: No API reference published.
+  - type: GettingStarted
+    reason: No quickstart or getting-started guide published.
+  - type: SignUp
+    reason: 'No self-service registration. kleio.ai/login 404s; kleio.ai/contact is a "Request a Demo"
+      form, which is a sales gate rather than a sign-up.'
+  - type: Postman
+    reason: No public Postman collection or workspace found.
+  - type: Roadmap
+    reason: No public roadmap.
+  - type: ChangeLog
+    reason: 'No changelog or release notes. kleio.ai/changelog 404s and the sitemap lists none.'
+  - type: AsyncAPI/Webhooks
+    reason: No event, streaming or webhook surface is documented publicly.
+  - type: AgentSkill
+    reason: 'No OpenAPI exists to ground skills in, and skills must be grounded in real operationIds.'
+  - type: Idempotency
+    reason: No idempotency contract is documented or observable.
+  - type: OpenAPI
+    reason: 'No specification found after probing every spec path on www.kleio.ai, api.kleio.ai, the
+      Cloud Run backend, and the non-resolving docs/developer/app subdomains.'

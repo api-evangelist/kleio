@@ -1,0 +1,100 @@
+# Kleio — Agentic Commerce Platform for Enterprise Sales
+
+> Kleio is the Agentic Commerce platform for complex, high-value enterprise sales. A domain-specific Knowledge Engine, paired with orchestrated AI agents, runs the full sales journey — discovery, product guidance, quoting, and conversion — in real time, across web, advisor desktops, and third-party AI surfaces.
+
+## About Kleio
+
+Kleio is an AI-native infrastructure for enterprise sales. Unlike generic chatbots or LLM wrappers, Kleio pairs a Knowledge Engine (a continuously-updated representation of a company's catalog, pricing, rules, and ontologies) with a stack of orchestrated AI agents, each tuned for a stage of the funnel.
+
+Kleio was founded in 2024 by Adrien Mathieu (CEO), Philippe Wellens, and Louis Poirier. The company raised a €3M seed round to transform sales and marketing with conversational AI. Kleio is headquartered in Paris and serves enterprise customers globally.
+
+## Core concepts
+
+### Agentic Commerce
+
+Agentic Commerce is the emerging paradigm where autonomous, specialized AI agents replace or augment traditional sales funnels. Instead of leads passing through static web forms, chatbots, and lead-routing workflows, agentic systems converse with prospects, reason about their needs against a live product ontology, and convert or hand off qualified opportunities in real time.
+
+### Knowledge Engine
+
+Kleio's Knowledge Engine is a living, continuously-updated representation of a company's products, services, pricing, and business rules. It ingests catalog feeds, CMS content, CRM context, and policy documents — then exposes them as structured, queryable knowledge to AI agents. Most competitors rely on generic RAG over docs; Kleio builds domain-specific ontologies that typically go live in weeks.
+
+### Orchestrated AI agents
+
+Kleio deploys specialized agents tuned for specific sales-journey stages: discovery agents (intent qualification), product-guidance agents (catalog reasoning), quoting agents (configurator + pricing), and Live Sales Copilot (real-time advisor augmentation). A routing layer orchestrates which agent handles each turn.
+
+## Product
+
+### Platform components
+
+- **Knowledge Engine**: ingests catalog, pricing, policies, and ontologies; typically live in weeks
+- **Conversational AI agents**: discovery, product guidance, quoting, conversion
+- **Live Sales Copilot**: real-time augmentation for human sales advisors
+- **Integrations**: CRM (Salesforce, HubSpot, custom), catalog systems, chat surfaces, ChatGPT via MCP, agent-to-agent (A2A) protocols
+
+### Key capabilities
+
+- Multi-language (English, French, expanding)
+- Sub-2-minute lead qualification (Havas Voyages benchmark)
+- Deployable across web widgets, advisor desktops, and third-party AI surfaces via MCP/A2A
+- Full CRM and catalog write-back
+- Enterprise-grade security (see Security Policy and Sub-processor List)
+
+## Industries served
+
+- **Travel**: Selectour, Havas Voyages — lead gen, advisor copilot, booking conversion
+- **Real estate**: Altarea Cogedim, Engel & Völkers — lead qualification and routing
+- **Automotive**: dealership demand capture, in-stock matching, test-drive booking
+- **Wholesale / E-commerce**: Showroomprivé — flash-catalog product guidance
+- **Beauty & cosmetics**: agentic search across product catalogs
+- **Manufacturing** and **Energy**: configurator-heavy sales cycles with complex ontologies
+
+## Case studies (with measurable results)
+
+### Showroomprivé — +20% online conversion
+Europe's leading flash-sales platform (€1B+ business volume). Kleio ingests real-time flash catalog data and drives a 20% lift in online conversion.
+
+### Selectour — 4,000 advisors, 1,000 agencies
+Europe's largest travel cooperative (€3.5B+ revenue). Kleio deployed across 225 franchise websites, ingesting 200M travel options across 80,000 products. +30% conversion lift.
+
+### Selectour AI Live Copilot — national rollout
+4,000 travel advisors augmented with real-time product intelligence via Live Sales Copilot. +10% conversion.
+
+### Havas Voyages — 2x web-to-agency lead volume
+1,000 travel advisors, 350 physical agencies. Kleio doubled web-to-agency lead volume and compressed average qualification time to under 2 minutes with CRM integration.
+
+### Altarea Cogedim — +30% leads, -50% CPA
+€3B+ revenue real-estate group. +30% more online leads at half the cost per acquisition versus a live-chat baseline, deployed in weeks.
+
+## Recent research and perspective
+
+- "What Is Agentic Commerce? The Next Era of Enterprise Sales"
+- "What Is a Knowledge Engine? How Kleio Solves the Enterprise Data Layer"
+- "MCP and A2A: How Kleio Connects Your Catalog to ChatGPT"
+- "Stop Losing Leads to Your Own CRM: The Urgent Case for Agentic Sales"
+- "Your AI Model Isn't the Problem, Your Data Layer Is"
+- "The DIY AI Trap: Why Projects Stall and Kleio Ships in 90 Days"
+- "The Next Frontier: Agent-to-Agent Commerce Built with Kleio"
+
+## How Kleio differs from alternatives
+
+- **vs. traditional chatbots (Drift, Intercom)**: Kleio uses a domain-specific Knowledge Engine, not scripted flows or generic LLM prompts
+- **vs. generic LLM wrappers / RAG-over-docs**: Kleio's Knowledge Engine builds product-specific ontologies with CRM and catalog integration, not just retrieval
+- **vs. in-house builds**: typical enterprise AI sales projects stall for 12+ months on data-layer work; Kleio's pre-built Knowledge Engine ships in 90 days
+
+## Founders and team
+
+- **Adrien Mathieu** — Co-founder and CEO
+- **Philippe Wellens** — Co-founder
+- **Louis Poirier** — Co-founder
+
+## Funding
+
+€3M seed round to transform sales and marketing with conversational AI.
+
+## Contact
+
+- Web: https://www.kleio.ai/
+- Book a demo: https://www.kleio.ai/contact
+- Careers: https://www.kleio.ai/careers
+- LinkedIn: https://www.linkedin.com/company/kleio-ai
+- X: https://x.com/kleio_ai

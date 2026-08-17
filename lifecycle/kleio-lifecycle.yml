@@ -1,0 +1,48 @@
+generated: '2026-08-17'
+method: searched
+source: 'https://www.kleio.ai/sitemap.xml, https://www.kleio.ai/security-policy, live probes'
+note: 'Kleio publishes no operational-transparency surface for its API. The sitemap enumerates every
+  public page in both languages and contains no status, changelog, release-notes, deprecation, SLA or
+  versioning page. No StatusPage or Deprecation pointer is emitted — those checks assert the provider
+  publishes the page, and Kleio does not.'
+versioning:
+  scheme: null
+  current: null
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: 'RFC 8594 Sunset/Deprecation header support is unknown; it cannot be observed on the anonymous
+    404 surface and is not documented.'
+sla:
+  url: null
+  uptime_target: null
+  note: 'No public SLA. The Security Policy commits to daily automated backups but states no uptime
+    target or support-response objective for the API.'
+status_page: null
+status_page_finding: unverifiable
+status_page_probes:
+- url: https://status.kleio.ai
+  status: 403
+  note: 'Interesting but unverifiable. status.kleio.ai has a deliberate DNS record — a control probe of
+    zzznotreal99.kleio.ai does not resolve, so this is not wildcard DNS — and it resolves to the same
+    Cloudflare addresses as api.kleio.ai. Every request returns HTTP 403 with cf-mitigated: challenge and
+    the Cloudflare "Just a moment..." interstitial, from curl and from a browser user-agent alike. A
+    status page may well exist here, but its content could not be read, so no StatusPage pointer is
+    emitted: the check asserts the provider publishes a readable status page and that was not
+    established. Worth re-probing on a later pass.'
+- url: https://www.kleio.ai/status
+  status: 404
+- url: https://kleio.statuspage.io
+  status: 200
+  note: 'REJECTED as a false positive. It 200s only because it redirects to
+    https://www.atlassian.com/software/statuspage, Atlassian''s own marketing page. A control probe of
+    zzznotrealcompany99.statuspage.io redirects to the identical page with the identical title, proving
+    every unclaimed statuspage.io subdomain answers this way. This is not a Kleio status page.'
+changelog: null
+deprecated_operations: []
+support:
+  channel: https://www.kleio.ai/contact
+  email: contact@kleio.ai
+  note: 'A demo/contact form and a general company mailbox. No developer support channel, community
+    forum or ticketing system is published.'

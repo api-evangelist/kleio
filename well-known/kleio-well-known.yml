@@ -1,0 +1,55 @@
+generated: '2026-08-17'
+method: searched
+source: live probes of the /.well-known/ surface on every Kleio host
+note: 'Two real documents were returned. The RFC 8414 authorization-server metadata served by the API
+  gateway at api.kleio.ai is the single most informative public artifact Kleio publishes — it is what
+  established that a real, OAuth-protected platform API exists behind a company that ships no developer
+  portal. It names an Auth0 tenant at auth.kleio.ai as the issuer, which in turn serves a full OpenID
+  Connect discovery document. www.kleio.ai is a Webflow marketing site and answers every /.well-known/
+  path with an HTML 404.'
+hosts:
+- host: https://api.kleio.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: kleio-oauth-authorization-server.json
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://auth.kleio.ai
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: kleio-openid-configuration.json
+    standard: OpenID Connect Discovery 1.0
+  - path: /.well-known/jwks.json
+    status: 200
+    note: 'JSON Web Key Set. Not saved to the repo — signing keys rotate, so a captured copy would be
+      stale on arrival and is better read live from the URI the discovery document publishes.'
+- host: https://www.kleio.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+gaps:
+- 'No security.txt (RFC 9116) on any host, so there is no machine-readable vulnerability-disclosure
+  contact.'
+- 'No /.well-known/api-catalog (RFC 9727), consistent with the absence of any published API index.'
+- 'No /.well-known/oauth-protected-resource (RFC 9728) on api.kleio.ai. Its presence is what lets an MCP
+  client discover which authorization server guards a resource; without it, and without a published MCP
+  endpoint, the MCP/UCP integration Kleio markets cannot be discovered by an agent unaided.'

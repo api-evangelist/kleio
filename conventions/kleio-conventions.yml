@@ -1,0 +1,63 @@
+generated: '2026-08-17'
+method: probed
+source: 'well-known/kleio-oauth-authorization-server.json, well-known/kleio-openid-configuration.json,
+  live responses from https://api.kleio.ai/'
+note: 'Kleio publishes no API conventions — there is no developer portal, reference or quickstart. This
+  document records only what was observed on the wire plus what the discovery metadata states; every
+  convention that cannot be observed anonymously is recorded as null, meaning unknown, rather than
+  false. Do not read a null here as "Kleio does not do this".'
+authentication:
+  style: oauth2-bearer
+  flow: authorization_code
+  pkce: S256 (required by the resource gateway metadata)
+  issuer: https://auth.kleio.ai/
+  dynamic_client_registration: https://api.kleio.ai/api/oauth/register
+  detail: authentication/kleio-authentication.yml
+idempotency:
+  supported: null
+  header: null
+  note: 'Unknown. No idempotency key header, scope or retention policy is documented, and it cannot be
+    observed without an authenticated write. No Idempotency pointer is emitted — the 9-point
+    agent-readiness signal is only awarded where the contract genuinely exists.'
+pagination:
+  style: null
+  note: Unknown — no documented or observable collection endpoint.
+versioning:
+  scheme: null
+  current: null
+  note: 'Unknown. No version appears in any published host or path. The gateway root and /v1 both return
+    the undefined-route 404, so no version prefix could be confirmed.'
+error_envelope:
+  observed_shape: '{"message": string, "code": integer}'
+  problem_json: false
+  note: 'This is the Google Cloud API Gateway (ESPv2) envelope returned for undefined routes — e.g.
+    {"message":"The current request is not defined by this API.","code":404} — and it is infrastructure
+    output, not evidence of a Kleio application error contract. Recorded because it is the only error
+    body observable anonymously. Not application/problem+json (RFC 9457).'
+  detail: null
+rate_limit_signaling:
+  headers: []
+  note: 'No rate-limit headers observed on any anonymous response. See
+    rate-limits/kleio-rate-limits.yml.'
+request_tracing:
+  header: x-cloud-trace-context
+  note: 'Google Cloud trace context is emitted on responses; Kleio publishes no request-id convention of
+    its own and does not document this as a support-correlation identifier.'
+transport:
+  protocol: HTTP/2
+  tls: TLSv1.3
+  edge: Cloudflare in front of Google Cloud API Gateway (Envoy/ESPv2)
+  hsts: max-age=31536000; includeSubDomains
+  security_headers:
+  - x-content-type-options: nosniff
+  - referrer-policy: no-referrer
+  - x-robots-tag: noindex
+  - cache-control: no-store
+content_negotiation:
+  response_content_type: application/json
+cross_links:
+  authentication: authentication/kleio-authentication.yml
+  scopes: scopes/kleio-scopes.yml
+  rate_limits: rate-limits/kleio-rate-limits.yml
+  lifecycle: lifecycle/kleio-lifecycle.yml
+  well_known: well-known/kleio-well-known.yml

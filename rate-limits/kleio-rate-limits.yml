@@ -1,0 +1,36 @@
+generated: '2026-08-17'
+method: probed
+source: 'https://www.kleio.ai/ (no developer documentation exists), live headers from
+  https://api.kleio.ai/'
+limit_count: 0
+note: 'Kleio documents no rate limits anywhere — there is no developer portal, API reference or
+  quickstart to document them in. Anonymous responses from api.kleio.ai were inspected directly for a
+  runtime signal instead, since headers are what an agent actually needs: no X-RateLimit-*, no
+  RateLimit-* (RFC 9331 draft), and no Retry-After header is returned. The gateway does answer with
+  cache-control: no-store and a Cloudflare edge in front of a Google Cloud API Gateway, so throttling
+  almost certainly exists at both layers; it is simply not signalled to callers on any anonymous
+  response, and the authenticated surface cannot be observed without credentials.'
+limits: []
+headers:
+  ratelimit_standard: null
+  x_ratelimit_limit: false
+  x_ratelimit_remaining: false
+  x_ratelimit_reset: false
+  retry_after: false
+  exhaustion_status_code: null
+observed_response_headers:
+- strict-transport-security
+- x-content-type-options
+- referrer-policy
+- cache-control
+- x-envoy-decorator-operation
+- x-cloud-trace-context
+- cf-ray
+- cf-cache-status
+evidence:
+- url: https://api.kleio.ai/
+  status: 404
+  note: 'HEAD and GET inspected; no rate-limit header of any family present.'
+- url: https://www.kleio.ai/sitemap.xml
+  status: 200
+  note: 'No developer, docs or API page exists in which limits could be published.'

@@ -1,0 +1,56 @@
+generated: '2026-08-17'
+method: probed
+source: https://auth.kleio.ai/.well-known/openid-configuration
+note: 'Kleio publishes no scopes or permissions reference. The scopes below are the scopes_supported
+  array from the OpenID Connect discovery document served by Kleio''s Auth0 tenant — captured because it
+  is the only published scope surface, but read it for what it is: these are the standard OIDC identity
+  scopes an Auth0 tenant advertises by default, not Kleio product scopes. No scope governing the Kleio
+  platform API itself (catalog, knowledge engine, agents, quoting, CRM write-back) is publicly named
+  anywhere. Kleio''s own API gateway metadata at api.kleio.ai omits scopes_supported entirely.'
+schemes:
+- name: KleioOIDC
+  issuer: https://auth.kleio.ai/
+  source: https://auth.kleio.ai/.well-known/openid-configuration
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.kleio.ai/authorize
+    tokenUrl: https://auth.kleio.ai/oauth/token
+scope_class: oidc-identity-only
+scopes:
+- scope: openid
+  description: Request an ID token and authenticate the end user.
+  standard: OpenID Connect Core 1.0
+- scope: profile
+  description: Basic profile claims for the authenticated user.
+  standard: OpenID Connect Core 1.0
+- scope: offline_access
+  description: Issue a refresh token so the client can renew access without user interaction.
+  standard: OpenID Connect Core 1.0
+- scope: email
+  description: The user's email address.
+  standard: OpenID Connect Core 1.0
+- scope: email_verified
+  description: Whether the user's email address has been verified.
+- scope: name
+  description: The user's full name.
+- scope: given_name
+  description: The user's given name.
+- scope: family_name
+  description: The user's family name.
+- scope: nickname
+  description: The user's nickname.
+- scope: picture
+  description: URL of the user's profile picture.
+- scope: phone
+  description: The user's phone number.
+- scope: address
+  description: The user's postal address.
+- scope: created_at
+  description: When the user record was created.
+- scope: identities
+  description: Linked identity-provider records for the user.
+gaps:
+- 'No product scopes published. A customer integrating the Kleio platform API cannot learn from any
+  public source what authorization a token carries or how least-privilege access would be requested.'
+- 'The api.kleio.ai RFC 8414 metadata declares no scopes_supported, so the resource server publishes no
+  scope vocabulary of its own.'

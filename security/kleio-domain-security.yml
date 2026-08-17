@@ -1,0 +1,28 @@
+generated: '2026-08-17'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.kleio.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  4 04:54:19 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.kleio.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  4 04:54:19 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  note: 'HSTS corrected by hand after the automated probe recorded null. api.kleio.ai answers every
+    undefined path with a JSON 404 from its Google Cloud API Gateway, which the probe treated as no
+    header; a direct HEAD returns two Strict-Transport-Security headers — "max-age=15552000;
+    includeSubDomains; preload" (Cloudflare edge) and "max-age=31536000; includeSubDomains" (origin).
+    The longer max-age is recorded.'
+domains:
+- domain: kleio.ai
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

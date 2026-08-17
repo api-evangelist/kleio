@@ -1,0 +1,103 @@
+generated: '2026-08-17'
+method: probed
+source: 'well-known/kleio-oauth-authorization-server.json, well-known/kleio-openid-configuration.json,
+  security/kleio-domain-security.yml, https://www.kleio.ai/security-policy'
+note: 'Every entry below is decided against a document that was actually fetched. Where a standard could
+  not be assessed because Kleio publishes nothing to assess it with, that is recorded as null rather than
+  false — an unassessable standard and a failed one are different findings, and Kleio ships no OpenAPI,
+  so the whole spec-derived half of this checklist is unassessable rather than absent.'
+standards:
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: 'https://api.kleio.ai/.well-known/oauth-authorization-server returns HTTP 200 with issuer,
+    authorization_endpoint, token_endpoint, jwks_uri, registration_endpoint, response_types_supported,
+    grant_types_supported and code_challenge_methods_supported.'
+- id: oidc-discovery
+  conforms: true
+  evidence: 'https://auth.kleio.ai/.well-known/openid-configuration returns HTTP 200 with a complete
+    OpenID Connect Discovery 1.0 document (28 members, including userinfo_endpoint and jwks_uri).'
+- id: oauth2-authorization-code
+  conforms: true
+  evidence: 'grant_types_supported = [authorization_code, refresh_token]; response_types_supported =
+    [code].'
+- id: rfc7636-pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported = [S256] on the resource gateway metadata. The Auth0 tenant
+    additionally advertises the plain method, which S256-only clients should not use.'
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: 'registration_endpoint https://api.kleio.ai/api/oauth/register is advertised and the route is
+    defined — a GET returns HTTP 405 (method not allowed) rather than the gateway 404 every undefined
+    path returns.'
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: false
+  evidence: 'https://api.kleio.ai/.well-known/oauth-protected-resource returns HTTP 404. Without it an
+    MCP client cannot discover which authorization server guards the resource.'
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: '/.well-known/security.txt returns HTTP 404 on www.kleio.ai and api.kleio.ai.'
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: 'https://www.kleio.ai/.well-known/api-catalog returns HTTP 404.'
+- id: a2a-agent-card
+  conforms: false
+  evidence: '/.well-known/agent-card.json and the legacy /.well-known/agent.json return HTTP 404 on every
+    Kleio host, despite Kleio marketing an agent-to-agent commerce layer.'
+- id: llmstxt
+  conforms: true
+  evidence: 'https://www.kleio.ai/llms.txt returns HTTP 200, text/plain, 5,886 bytes, correctly formed —
+    H1, blockquote summary, then sectioned prose.'
+- id: hsts
+  conforms: true
+  evidence: 'Strict-Transport-Security present on www.kleio.ai and api.kleio.ai; longest max-age
+    31536000 with includeSubDomains.'
+- id: dnssec
+  conforms: true
+  evidence: 'DNSKEY present for kleio.ai.'
+- id: dmarc
+  conforms: true
+  evidence: 'DMARC published with policy p=quarantine (not the stronger p=reject).'
+- id: caa
+  conforms: false
+  evidence: 'No CAA record on kleio.ai — any public CA may issue for the domain.'
+- id: openapi
+  conforms: null
+  evidence: 'Unassessable. No OpenAPI or Swagger document is published on any Kleio host; every probed
+    spec path returns the API gateway 404.'
+- id: rfc9457-problem-details
+  conforms: null
+  evidence: 'Unassessable. The only error bodies observable anonymously are the Google Cloud API Gateway
+    404 envelope {"message": ..., "code": ...}, which is infrastructure output rather than a Kleio error
+    contract, and is not application/problem+json.'
+- id: asyncapi
+  conforms: null
+  evidence: 'Unassessable. No event, streaming or webhook surface is documented publicly.'
+- id: mcp
+  conforms: null
+  evidence: 'Unassessable. Kleio markets MCP/UCP integration on kleio.ai/products and in its own
+    llms.txt, but publishes no endpoint; tools/list POSTs to every plausible path on api.kleio.ai return
+    the gateway 404. See mcp/kleio-mcp.yml.'
+compliance:
+  own_certifications: []
+  note: 'Kleio publishes a Security Policy at https://www.kleio.ai/security-policy and a sub-processor
+    list at https://www.kleio.ai/sub-processor-list. The certifications named in that policy — SOC 2 and
+    ISO 27001 (Google Cloud Platform, Redis Cloud, CockroachDB), ISO 27018 (GCP, Redis Cloud), ISO 27017
+    (CockroachDB) — are held by Kleio SUB-PROCESSORS, not by Kleio. No Kleio-held certification, audit
+    report or trust center was found, so no Compliance pointer is emitted; inherited infrastructure certs
+    are not a company compliance program.'
+  subprocessor_certifications:
+  - holder: Google Cloud Platform
+    certifications: [SOC 2, ISO 27001, ISO 27018]
+  - holder: Redis Cloud
+    certifications: [SOC 2, ISO 27001, ISO 27018]
+  - holder: CockroachDB
+    certifications: [SOC 2, ISO 27001, ISO 27017]
+  published_security_controls:
+    source: https://www.kleio.ai/security-policy
+    encryption_at_rest: AES-256
+    encryption_in_transit: TLS 1.2+
+    backups: daily automated
+    waf: true
+    employee_mfa: required
+    access_model: principle of least privilege
+    data_hosting: Google Cloud Platform

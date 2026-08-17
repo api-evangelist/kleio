@@ -1,0 +1,22 @@
+generated: '2026-08-17'
+method: searched
+source: https://www.kleio.ai/
+plan_count: 0
+model: contact-sales
+note: 'Kleio publishes no pricing. https://www.kleio.ai/pricing returns HTTP 404 and no pricing page
+  appears anywhere in the sitemap (which lists every public page on the site, in English and French).
+  There is no plan table, no per-seat or usage rate, no free tier and no trial. Every conversion path on
+  the site is "Request a Demo" pointing at https://www.kleio.ai/contact, and the founder''s Calendly
+  appears in at least one article. This is consistent with the product: enterprise deployments described
+  as shipping in 90 days against a customer''s own catalog and CRM are scoped and priced per engagement.
+  plan_count: 0 is the measurement, not a gap in the search.'
+plans: []
+evidence:
+- url: https://www.kleio.ai/pricing
+  status: 404
+- url: https://www.kleio.ai/sitemap.xml
+  status: 200
+  note: 'Enumerated; contains no pricing or plans URL in either language.'
+- url: https://www.kleio.ai/contact
+  status: 200
+  note: The demo-request form that stands in for pricing.

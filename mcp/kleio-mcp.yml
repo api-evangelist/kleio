@@ -1,0 +1,75 @@
+generated: '2026-08-17'
+method: searched
+status: claimed-undocumented
+source: 'https://www.kleio.ai/llms.txt, https://www.kleio.ai/products,
+  https://www.kleio.ai/article/mcp-a2a-enterprise-ai-search'
+summary: 'Kleio markets MCP as a first-class deployment surface but publishes no endpoint, no tool list,
+  no input schemas and no connection instructions. Its own llms.txt lists "Integrations: ... chat
+  surfaces, ChatGPT via MCP, agent-to-agent (A2A) protocols" and its product page claims "native
+  integration with AI search platforms (ChatGPT, Google AI, Claude, Gemini) via MCP/UCP". The
+  MCP-and-A2A article states only that "the A2A layer exposes this knowledge via MCP-compatible
+  endpoints to external AI platforms" and names no URL. This artifact records the claim and the probe
+  that failed to substantiate it. No tool list is derived, because there is no OpenAPI to derive one
+  from and inventing tools for a server nobody can reach would fabricate an agent surface.'
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+  note: 'mode: none records that no reachable MCP server was found, NOT that Kleio does none of this
+    work — the integration is plausibly real and delivered per customer during a 90-day implementation.
+    It is simply not an agent surface anyone can discover or call from outside. If Kleio publishes an
+    endpoint, this becomes mode: remote on the next pass.'
+tools: []
+probe:
+  date: '2026-08-17'
+  method: 'POST {"jsonrpc":"2.0","id":1,"method":"tools/list"} with Accept: application/json,
+    text/event-stream'
+  results:
+  - url: https://api.kleio.ai/mcp
+    status: 404
+  - url: https://api.kleio.ai/api/mcp
+    status: 404
+  - url: https://api.kleio.ai/v1/mcp
+    status: 404
+  - url: https://api.kleio.ai/mcp/
+    status: 404
+  - url: https://api.kleio.ai/sse
+    status: 404
+  - url: https://api.kleio.ai/mcp/sse
+    status: 404
+  - url: https://api.kleio.ai/api/mcp/sse
+    status: 404
+  - url: https://www.kleio.ai/mcp
+    status: 404
+  - url: https://mcp.kleio.ai/mcp
+    status: 0
+    note: mcp.kleio.ai does not resolve (no DNS record).
+  - url: https://api.kleio.ai/.well-known/oauth-protected-resource
+    status: 404
+    note: 'RFC 9728 resource metadata absent, so there is no discovery path from a resource to its
+      authorization server either.'
+  supporting:
+  - url: https://api.kleio.ai/.well-known/oauth-authorization-server
+    status: 200
+    note: 'The authorization server IS configured the way an MCP deployment would be — authorization
+      code, S256 PKCE, and open dynamic client registration at api.kleio.ai/api/oauth/register (HTTP 405
+      to GET, so the route exists). That is corroborating evidence for an MCP server behind the gateway,
+      and it is still not an endpoint. Recorded as supporting evidence only; it does not upgrade
+      deployment.mode.'
+not_this_company:
+- endpoint: https://app.getkleio.com/api/mcp
+  belongs_to: 'Kleio (getkleio.com) — a Shopify analytics product, an unrelated company that shares the
+    name.'
+  reason: 'Search engines return this endpoint for the query "kleio MCP server". It is NOT kleio.ai''s.
+    Recorded here so a later enrichment round does not adopt it. Two other name collisions exist and are
+    also not this company: kle.io (an ad server with an API at kle.io/docs) and github.com/KleioDev/kleio
+    (an unrelated open-source project). The @kleio/* npm packages (@kleio/core, @kleio/agent, @kleio/ai,
+    @kleio/coder, @kleio/manager) belong to the fmckie/gg-framework project and are also unrelated.'
+gaps:
+- 'No published MCP endpoint URL.'
+- 'No published tool names or input schemas.'
+- 'No MCP server registry listing found.'
+- 'No connection/config snippet in any public Kleio document.'

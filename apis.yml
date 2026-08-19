@@ -17,7 +17,7 @@ url: https://raw.githubusercontent.com/api-evangelist/kleio/refs/heads/main/apis
 x-type: company
 x-source: serena-portfolio
 image: https://cdn.prod.website-files.com/67b32cd10cd0c67b686078c2/67c06a31d5ccb4402746c01b_logo-circle-32x32.png
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-17'
 modified: '2026-08-17'
 tags:

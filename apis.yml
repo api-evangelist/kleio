@@ -28,6 +28,21 @@ tags:
 - Enterprise Sales
 - Conversational AI
 - Knowledge Engine
+- MCP
+- Agent-to-Agent
+- Retail
+- Travel
+- Real-Estate
+- Automotive
+- France
+tags_raw:
+- Company
+- Ai Data
+- Agentic Commerce
+- AI Agents
+- Enterprise Sales
+- Conversational AI
+- Knowledge Engine
 - Model Context Protocol
 - Agent To Agent
 - Retail
@@ -49,6 +64,10 @@ apis:
   humanURL: https://www.kleio.ai/products
   baseURL: https://api.kleio.ai
   tags:
+  - Agentic Commerce
+  - AI Agents
+  - Authentication
+  tags_raw:
   - Agentic Commerce
   - AI Agents
   - OAuth

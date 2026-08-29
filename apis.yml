@@ -16,6 +16,17 @@ description: 'Kleio is a Paris-headquartered agentic commerce platform for compl
 url: https://raw.githubusercontent.com/api-evangelist/kleio/refs/heads/main/apis.yml
 x-type: company
 x-source: serena-portfolio
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/67b32cd10cd0c67b686078c2/67c06a31d5ccb4402746c01b_logo-circle-32x32.png
 specificationVersion: '0.23'
 created: '2026-08-17'

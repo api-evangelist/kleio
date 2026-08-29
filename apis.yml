@@ -14,6 +14,8 @@ description: 'Kleio is a Paris-headquartered agentic commerce platform for compl
   OpenAPI: the platform API at api.kleio.ai is an OAuth-protected Google Cloud API Gateway reachable only
   to customers, and access begins with a sales conversation.'
 url: https://raw.githubusercontent.com/api-evangelist/kleio/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
 x-type: company
 x-source: serena-portfolio
 deliveryModel:

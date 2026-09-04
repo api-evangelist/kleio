@@ -29,6 +29,22 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - scopes
+  - rate-limits
+  - security
+  generated: '2026-09-03'
+  method: derived
 image: https://cdn.prod.website-files.com/67b32cd10cd0c67b686078c2/67c06a31d5ccb4402746c01b_logo-circle-32x32.png
 specificationVersion: '0.23'
 created: '2026-08-17'

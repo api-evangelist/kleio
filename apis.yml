@@ -58,10 +58,9 @@ tags:
 - Conversational AI
 - Knowledge Engine
 - MCP
-- Agent-to-Agent
 - Retail
 - Travel
-- Real-Estate
+- Real Estate
 - Automotive
 - France
 tags_raw:
@@ -73,12 +72,12 @@ tags_raw:
 - Conversational AI
 - Knowledge Engine
 - Model Context Protocol
-- Agent To Agent
 - Retail
 - Travel
 - Real Estate
 - Automotive
 - France
+- Real-Estate
 apis:
 - aid: kleio:kleio-platform
   name: Kleio Platform API
@@ -234,3 +233,5 @@ x-pointer-omissions:
   - type: OpenAPI
     reason: No specification found after probing every spec path on www.kleio.ai, api.kleio.ai, the Cloud
       Run backend, and the non-resolving docs/developer/app subdomains.
+x-tags-removed:
+- A2A

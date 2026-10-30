@@ -64,6 +64,108 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kleio is a company surfaced as a portfolio company of serena and added to the API Evangelist network as a stub for enrichment. Sector: ai-data. This profile is a lead awaiting the enrichment pipeline.
+Kleio is a Paris-headquartered agentic commerce platform for complex, high-value enterprise sales, founded in 2024 by Adrien Mathieu, Philippe Wellens and Louis Poirier and backed by a EUR 3M seed round. The platform pairs a domain-specific Knowledge Engine — a continuously updated representation of a company's catalog, pricing, business rules and ontologies — with a stack of orchestrated AI agents tuned for each stage of the sales funnel: discovery agents for intent qualification, product-guidance agents that reason over the catalog, quoting agents wired to configurators and pricing, and a Live Sales Copilot that augments human advisors in real time. Kleio deploys across web widgets, advisor desktops and third-party AI surfaces such as ChatGPT and Gemini via MCP/UCP integrations, with CRM and catalog write-back to Salesforce, HubSpot and custom systems. Named customers include Selectour, Havas Voyages, Showroomprive, Altarea Cogedim, Orpi and Emil Frey, across travel, real estate, automotive, wholesale, insurance, manufacturing and energy. Kleio publishes no public developer portal, API reference or OpenAPI: the platform API at api.kleio.ai is an OAuth-protected Google Cloud API Gateway reachable only to customers, and access begins with a sales conversation.
 
-Source: portfolio company of [serena](https://github.com/api-evangelist/serena) — https://www.kleio.ai/
+**Areas:** Company · Ai Data · Agentic Commerce · AI Agents · Enterprise Sales · Conversational AI · Knowledge Engine · MCP · Retail · Travel · Real Estate · Automotive
+
+## Kleio on APIs.io
+
+Everything profiled for Kleio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kleio/](https://apis.io/providers/kleio/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Kleio Platform API](https://apis.io/apis/kleio/kleio-platform/) — The Kleio platform API, served from api.kleio.ai behind a Google Cloud API Gateway and protected by OAuth 2.0 authorization-code + PKCE against an Auth0…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kleio Authentication](https://apis.io/security/kleio/kleio-authentication/)
+- [Kleio Domain Security](https://apis.io/security/kleio/kleio-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Kleio Scopes](https://apis.io/scopes/kleio/kleio-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Kleio Plans Pricing](https://apis.io/plans/kleio/kleio-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Kleio Rate Limits](https://apis.io/rate-limits/kleio/kleio-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.kleio.ai/)
+- [Support](https://www.kleio.ai/contact)
+- [Blog](https://www.kleio.ai/news)
+- [Security](https://www.kleio.ai/security-policy)
+- [Terms of service](https://www.kleio.ai/acceptable-use-policy)
+- [Privacy policy](https://www.kleio.ai/privacy-policy)
+- [GitHub](https://github.com/kleioai)
+
+## API Evangelist rating
+
+**Kin Score 21.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 21.1 |
+
+**Agent readiness 17.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kleio/](https://apis.io/providers/kleio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kleio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kleio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
